@@ -23,16 +23,24 @@ export function getAllPosts(): BlogPost[] {
     'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'
   ];
 
-  const formatPtDate = (isoDate: string) => {
+  const formatPtDate = (isoDate: string | Date) => {
+    // gray-matter can parse YAML dates as Date objects directly
+    let dateStr = isoDate;
+    if (isoDate instanceof Date) {
+      dateStr = isoDate.toISOString().split('T')[0];
+    } else if (typeof isoDate !== 'string') {
+      return '';
+    }
+    
     // Expects YYYY-MM-DD
-    const parts = isoDate.split('-');
+    const parts = (dateStr as string).split('-');
     if (parts.length === 3) {
       const year = parts[0];
       const monthIdx = parseInt(parts[1], 10) - 1;
       const day = parts[2];
       return `${day} ${ptMonths[monthIdx]} ${year}`;
     }
-    return isoDate; // fallback
+    return dateStr as string; // fallback
   };
   
   const posts = Object.entries(mdFiles).map(([path, rawContent]) => {
@@ -43,8 +51,8 @@ export function getAllPosts(): BlogPost[] {
       slug,
       title: data.title || '',
       subtitle: data.subtitle || '',
-      date: formatPtDate(data.date || ''),
-      _rawDate: data.date || '', // keep raw date for sorting
+      date: formatPtDate(data.date),
+      _rawDate: data.date instanceof Date ? data.date.toISOString() : (data.date || ''), // keep raw date for sorting
       readTime: data.readTime || '',
       author: data.author || 'Filipe Chicarino',
       coverImage: data.coverImage || '',
