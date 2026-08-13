@@ -8,6 +8,7 @@ import ParceirosSection from "@/components/home/ParceirosSection";
 import NarrativasSection from "@/components/home/NarrativasSection";
 import BlogSection from "@/components/home/BlogSection";
 import ContactSection from "@/components/home/ContactSection";
+import { images } from "@/lib/assets";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,7 +19,17 @@ export const Route = createFileRoute("/")({
         content:
           "Filipe Chicarino é facilitador em comunicação humanizada. Palestras sobre NR-1, treinamentos em CNV e produção audiovisual para empresas.",
       },
+      { property: "og:title", content: "Filipe Chicarino - Comunicação Humanizada e Não-Violenta" },
+      { property: "og:description", content: "Filipe Chicarino é facilitador em comunicação humanizada. Palestras sobre NR-1, treinamentos em CNV e produção audiovisual para empresas." },
+      { property: "og:url", content: "https://filipechicarino.com.br/" },
+      { property: "og:image", content: images.hero },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: images.hero },
     ],
+    links: [
+      { rel: "canonical", href: "https://filipechicarino.com.br/" }
+    ]
   }),
   component: HomePage,
 });

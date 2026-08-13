@@ -13,7 +13,17 @@ export const Route = createFileRoute('/blog/a-reuniao-fantasma-voce-esta-present
         name: "description",
         content: "92% dos profissionais admitem realizar outras tarefas durante uma reunião online",
       },
+      { property: "og:title", content: "A Reunião Fantasma: você está presente ou apenas conectado? | Filipe Chicarino" },
+      { property: "og:description", content: "92% dos profissionais admitem realizar outras tarefas durante uma reunião online" },
+      { property: "og:url", content: "https://filipechicarino.com.br/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado" },
+      { property: "og:image", content: images.unsplashReuniao },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: images.unsplashReuniao },
     ],
+    links: [
+      { rel: "canonical", href: "https://filipechicarino.com.br/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado" }
+    ]
   }),
   component: Article4,
 });

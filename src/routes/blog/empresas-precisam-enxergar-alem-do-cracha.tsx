@@ -13,7 +13,17 @@ export const Route = createFileRoute('/blog/empresas-precisam-enxergar-alem-do-c
         name: "description",
         content: "O cenário da saúde mental no Brasil, a NR1 e os riscos psicossociais",
       },
+      { property: "og:title", content: "Empresas precisam enxergar além do crachá | Filipe Chicarino" },
+      { property: "og:description", content: "O cenário da saúde mental no Brasil, a NR1 e os riscos psicossociais" },
+      { property: "og:url", content: "https://filipechicarino.com.br/blog/empresas-precisam-enxergar-alem-do-cracha" },
+      { property: "og:image", content: images.unsplashCracha },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: images.unsplashCracha },
     ],
+    links: [
+      { rel: "canonical", href: "https://filipechicarino.com.br/blog/empresas-precisam-enxergar-alem-do-cracha" }
+    ]
   }),
   component: Article1,
 });

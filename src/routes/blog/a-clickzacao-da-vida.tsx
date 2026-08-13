@@ -13,7 +13,17 @@ export const Route = createFileRoute('/blog/a-clickzacao-da-vida')({
         name: "description",
         content: "O que o filme de Adam Sandler nos ensinou (e ignoramos)",
       },
+      { property: "og:title", content: "A Clickzação da Vida | Filipe Chicarino" },
+      { property: "og:description", content: "O que o filme de Adam Sandler nos ensinou (e ignoramos)" },
+      { property: "og:url", content: "https://filipechicarino.com.br/blog/a-clickzacao-da-vida" },
+      { property: "og:image", content: images.unsplashClickzacao },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: images.unsplashClickzacao },
     ],
+    links: [
+      { rel: "canonical", href: "https://filipechicarino.com.br/blog/a-clickzacao-da-vida" }
+    ]
   }),
   component: Article3,
 });

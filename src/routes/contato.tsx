@@ -5,6 +5,7 @@ import Footer from '@/components/site/Footer';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Instagram, Linkedin } from 'lucide-react';
 import { toast } from 'sonner';
+import { images } from '@/lib/assets';
 
 export const Route = createFileRoute('/contato')({
   head: () => ({
@@ -14,7 +15,17 @@ export const Route = createFileRoute('/contato')({
         name: "description",
         content: "Entre em contato com Filipe Chicarino para palestras, treinamentos e consultorias.",
       },
+      { property: "og:title", content: "Contato | Filipe Chicarino" },
+      { property: "og:description", content: "Entre em contato com Filipe Chicarino para palestras, treinamentos e consultorias." },
+      { property: "og:url", content: "https://filipechicarino.com.br/contato" },
+      { property: "og:image", content: images.logo },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: images.logo },
     ],
+    links: [
+      { rel: "canonical", href: "https://filipechicarino.com.br/contato" }
+    ]
   }),
   component: ContatoPage,
 });

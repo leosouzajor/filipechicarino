@@ -13,7 +13,17 @@ export const Route = createFileRoute('/blog/comunicacao-nao-violenta-jamais-vai-
         name: "description",
         content: "A Comunicação Não Violenta tira a comunicação do campo do conflito e a coloca no campo da eficiência",
       },
+      { property: "og:title", content: "Comunicação não Violenta jamais vai ser perfumaria | Filipe Chicarino" },
+      { property: "og:description", content: "A Comunicação Não Violenta tira a comunicação do campo do conflito e a coloca no campo da eficiência" },
+      { property: "og:url", content: "https://filipechicarino.com.br/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria" },
+      { property: "og:image", content: images.unsplashCnv },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: images.unsplashCnv },
     ],
+    links: [
+      { rel: "canonical", href: "https://filipechicarino.com.br/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria" }
+    ]
   }),
   component: Article2,
 });

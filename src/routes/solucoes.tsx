@@ -9,12 +9,22 @@ import { images } from '@/lib/assets';
 export const Route = createFileRoute('/solucoes')({
   head: () => ({
     meta: [
-      { title: "Soluções | Filipe Chicarino" },
+      { title: "Soluções Corporativas | Filipe Chicarino" },
       {
         name: "description",
-        content: "Conheça nossas soluções em palestras, treinamentos, produção audiovisual e consultoria NR-1.",
+        content: "Palestras, treinamentos, mentoria e consultoria para transformar o ambiente corporativo com Comunicação Não Violenta e gestão de riscos psicossociais.",
       },
+      { property: "og:title", content: "Soluções Corporativas | Filipe Chicarino" },
+      { property: "og:description", content: "Palestras, treinamentos, mentoria e consultoria para transformar o ambiente corporativo com Comunicação Não Violenta e gestão de riscos psicossociais." },
+      { property: "og:url", content: "https://filipechicarino.com.br/solucoes" },
+      { property: "og:image", content: images.hero },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: images.hero },
     ],
+    links: [
+      { rel: "canonical", href: "https://filipechicarino.com.br/solucoes" }
+    ]
   }),
   component: SolucoesPage,
 });

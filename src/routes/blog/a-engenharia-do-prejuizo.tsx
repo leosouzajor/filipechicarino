@@ -12,7 +12,17 @@ export const Route = createFileRoute('/blog/a-engenharia-do-prejuizo')({
         name: "description",
         content: "O impacto do vício em apostas virtuais na saúde pública e na economia do Brasil",
       },
+      { property: "og:title", content: "A engenharia do prejuízo | Filipe Chicarino" },
+      { property: "og:description", content: "O impacto do vício em apostas virtuais na saúde pública e na economia do Brasil" },
+      { property: "og:url", content: "https://filipechicarino.com.br/blog/a-engenharia-do-prejuizo" },
+      { property: "og:image", content: images.artigoEngenhariaDoPrejuizo },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: images.artigoEngenhariaDoPrejuizo },
     ],
+    links: [
+      { rel: "canonical", href: "https://filipechicarino.com.br/blog/a-engenharia-do-prejuizo" }
+    ]
   }),
   component: Article5,
 });
