@@ -1,0 +1,41 @@
+media:
+  input: public/images/blog
+  output: /images/blog
+
+content:
+  - name: artigos
+    label: Artigos
+    type: collection
+    path: content/blog
+    format: frontmatter
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: subtitle
+        label: Subtítulo
+        type: string
+      - name: date
+        label: Data
+        type: string
+        description: "Formato sugerido: DD MMM YYYY (ex: 15 Mar 2026)"
+      - name: readTime
+        label: Tempo de leitura
+        type: string
+        description: "Ex: 5 min de leitura"
+      - name: excerpt
+        label: Resumo
+        type: text
+      - name: coverImage
+        label: Imagem de capa
+        type: image
+      - name: seoTitle
+        label: Título SEO
+        type: string
+      - name: seoDescription
+        label: Descrição SEO
+        type: string
+      - name: body
+        label: Corpo do artigo
+        type: rich-text

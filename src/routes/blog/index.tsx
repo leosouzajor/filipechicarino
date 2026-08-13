@@ -28,69 +28,23 @@ export const Route = createFileRoute('/blog/')({
   component: BlogPage,
 });
 
+import { getAllPosts } from '@/lib/blog';
+
 function BlogPage() {
-  const articles = [
-    {
-      id: 5,
-      title: "A engenharia do prejuízo",
-      excerpt: "O impacto do vício em apostas virtuais na saúde pública e na economia do Brasil",
-      category: "ARTIGO",
-      date: "05 Ago 2026",
-      readTime: "5 min",
-      author: "Filipe Chicarino",
-      link: "/blog/a-engenharia-do-prejuizo",
-      image: images.artigoEngenhariaDoPrejuizo,
-      authorImage: images.autorAvatar
-    },
-    {
-      id: 4,
-      title: "A Reunião Fantasma: você está presente ou apenas conectado?",
-      excerpt: "92% dos profissionais admitem realizar outras tarefas durante uma reunião online",
-      category: "ARTIGO",
-      date: "28 Mar 2026",
-      readTime: "4 min",
-      author: "Filipe Chicarino",
-      link: "/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado",
-      image: images.unsplashReuniao,
-      authorImage: images.autorAvatar
-    },
-    {
-      id: 3,
-      title: "A Clickzação da Vida",
-      excerpt: "O que o filme de Adam Sandler nos ensinou (e ignoramos)",
-      category: "ARTIGO",
-      date: "22 Mar 2026",
-      readTime: "7 min",
-      author: "Filipe Chicarino",
-      link: "/blog/a-clickzacao-da-vida",
-      image: images.unsplashClickzacao,
-      authorImage: images.autorAvatar
-    },
-    {
-      id: 2,
-      title: "Comunicação não Violenta jamais vai ser perfumaria",
-      excerpt: "A Comunicação Não Violenta tira a comunicação do campo do conflito e a coloca no campo da eficiência",
-      category: "ARTIGO",
-      date: "15 Mar 2026",
-      readTime: "5 min",
-      author: "Filipe Chicarino",
-      link: "/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria",
-      image: images.unsplashCnv,
-      authorImage: images.autorAvatar
-    },
-    {
-      id: 1,
-      title: "Empresas precisam enxergar além do crachá",
-      excerpt: "O cenário da saúde mental no Brasil, a NR1 e os riscos psicossociais",
-      category: "ARTIGO",
-      date: "10 Mar 2026",
-      readTime: "6 min",
-      author: "Filipe Chicarino",
-      link: "/blog/empresas-precisam-enxergar-alem-do-cracha",
-      image: images.unsplashCracha,
-      authorImage: images.autorAvatar
-    }
-  ];
+  const posts = getAllPosts();
+  
+  const articles = posts.map((post, index) => ({
+    id: index,
+    title: post.title,
+    excerpt: post.excerpt,
+    category: "ARTIGO",
+    date: post.date,
+    readTime: post.readTime,
+    author: post.author,
+    link: `/blog/${post.slug}`,
+    image: post.coverImage,
+    authorImage: images.autorAvatar
+  }));
 
   return (
     <div className="min-h-screen bg-[#F5F3EF]">

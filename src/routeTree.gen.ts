@@ -14,11 +14,7 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as QuemSouRouteImport } from './routes/quem-sou'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
-import { Route as BlogAClickzacaoDaVidaRouteImport } from './routes/blog/a-clickzacao-da-vida'
-import { Route as BlogAEngenhariaDoPrejuizoRouteImport } from './routes/blog/a-engenharia-do-prejuizo'
-import { Route as BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRouteImport } from './routes/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado'
-import { Route as BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRouteImport } from './routes/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria'
-import { Route as BlogEmpresasPrecisamEnxergarAlemDoCrachaRouteImport } from './routes/blog/empresas-precisam-enxergar-alem-do-cracha'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -45,46 +41,18 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogAClickzacaoDaVidaRoute = BlogAClickzacaoDaVidaRouteImport.update({
-  id: '/blog/a-clickzacao-da-vida',
-  path: '/blog/a-clickzacao-da-vida',
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogAEngenhariaDoPrejuizoRoute =
-  BlogAEngenhariaDoPrejuizoRouteImport.update({
-    id: '/blog/a-engenharia-do-prejuizo',
-    path: '/blog/a-engenharia-do-prejuizo',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRoute =
-  BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRouteImport.update({
-    id: '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado',
-    path: '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRoute =
-  BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRouteImport.update({
-    id: '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria',
-    path: '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const BlogEmpresasPrecisamEnxergarAlemDoCrachaRoute =
-  BlogEmpresasPrecisamEnxergarAlemDoCrachaRouteImport.update({
-    id: '/blog/empresas-precisam-enxergar-alem-do-cracha',
-    path: '/blog/empresas-precisam-enxergar-alem-do-cracha',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
   '/quem-sou': typeof QuemSouRoute
   '/solucoes': typeof SolucoesRoute
-  '/blog/a-clickzacao-da-vida': typeof BlogAClickzacaoDaVidaRoute
-  '/blog/a-engenharia-do-prejuizo': typeof BlogAEngenhariaDoPrejuizoRoute
-  '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado': typeof BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRoute
-  '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria': typeof BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRoute
-  '/blog/empresas-precisam-enxergar-alem-do-cracha': typeof BlogEmpresasPrecisamEnxergarAlemDoCrachaRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -92,11 +60,7 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/quem-sou': typeof QuemSouRoute
   '/solucoes': typeof SolucoesRoute
-  '/blog/a-clickzacao-da-vida': typeof BlogAClickzacaoDaVidaRoute
-  '/blog/a-engenharia-do-prejuizo': typeof BlogAEngenhariaDoPrejuizoRoute
-  '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado': typeof BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRoute
-  '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria': typeof BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRoute
-  '/blog/empresas-precisam-enxergar-alem-do-cracha': typeof BlogEmpresasPrecisamEnxergarAlemDoCrachaRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
@@ -105,49 +69,22 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/quem-sou': typeof QuemSouRoute
   '/solucoes': typeof SolucoesRoute
-  '/blog/a-clickzacao-da-vida': typeof BlogAClickzacaoDaVidaRoute
-  '/blog/a-engenharia-do-prejuizo': typeof BlogAEngenhariaDoPrejuizoRoute
-  '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado': typeof BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRoute
-  '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria': typeof BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRoute
-  '/blog/empresas-precisam-enxergar-alem-do-cracha': typeof BlogEmpresasPrecisamEnxergarAlemDoCrachaRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/contato'
-    | '/quem-sou'
-    | '/solucoes'
-    | '/blog/a-clickzacao-da-vida'
-    | '/blog/a-engenharia-do-prejuizo'
-    | '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado'
-    | '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria'
-    | '/blog/empresas-precisam-enxergar-alem-do-cracha'
-    | '/blog/'
+    '/' | '/contato' | '/quem-sou' | '/solucoes' | '/blog/$slug' | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/contato'
-    | '/quem-sou'
-    | '/solucoes'
-    | '/blog/a-clickzacao-da-vida'
-    | '/blog/a-engenharia-do-prejuizo'
-    | '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado'
-    | '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria'
-    | '/blog/empresas-precisam-enxergar-alem-do-cracha'
-    | '/blog'
+  to: '/' | '/contato' | '/quem-sou' | '/solucoes' | '/blog/$slug' | '/blog'
   id:
     | '__root__'
     | '/'
     | '/contato'
     | '/quem-sou'
     | '/solucoes'
-    | '/blog/a-clickzacao-da-vida'
-    | '/blog/a-engenharia-do-prejuizo'
-    | '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado'
-    | '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria'
-    | '/blog/empresas-precisam-enxergar-alem-do-cracha'
+    | '/blog/$slug'
     | '/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -156,11 +93,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   QuemSouRoute: typeof QuemSouRoute
   SolucoesRoute: typeof SolucoesRoute
-  BlogAClickzacaoDaVidaRoute: typeof BlogAClickzacaoDaVidaRoute
-  BlogAEngenhariaDoPrejuizoRoute: typeof BlogAEngenhariaDoPrejuizoRoute
-  BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRoute: typeof BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRoute
-  BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRoute: typeof BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRoute
-  BlogEmpresasPrecisamEnxergarAlemDoCrachaRoute: typeof BlogEmpresasPrecisamEnxergarAlemDoCrachaRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
@@ -201,39 +134,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/a-clickzacao-da-vida': {
-      id: '/blog/a-clickzacao-da-vida'
-      path: '/blog/a-clickzacao-da-vida'
-      fullPath: '/blog/a-clickzacao-da-vida'
-      preLoaderRoute: typeof BlogAClickzacaoDaVidaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog/a-engenharia-do-prejuizo': {
-      id: '/blog/a-engenharia-do-prejuizo'
-      path: '/blog/a-engenharia-do-prejuizo'
-      fullPath: '/blog/a-engenharia-do-prejuizo'
-      preLoaderRoute: typeof BlogAEngenhariaDoPrejuizoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado': {
-      id: '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado'
-      path: '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado'
-      fullPath: '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado'
-      preLoaderRoute: typeof BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria': {
-      id: '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria'
-      path: '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria'
-      fullPath: '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria'
-      preLoaderRoute: typeof BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog/empresas-precisam-enxergar-alem-do-cracha': {
-      id: '/blog/empresas-precisam-enxergar-alem-do-cracha'
-      path: '/blog/empresas-precisam-enxergar-alem-do-cracha'
-      fullPath: '/blog/empresas-precisam-enxergar-alem-do-cracha'
-      preLoaderRoute: typeof BlogEmpresasPrecisamEnxergarAlemDoCrachaRouteImport
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -244,14 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   QuemSouRoute: QuemSouRoute,
   SolucoesRoute: SolucoesRoute,
-  BlogAClickzacaoDaVidaRoute: BlogAClickzacaoDaVidaRoute,
-  BlogAEngenhariaDoPrejuizoRoute: BlogAEngenhariaDoPrejuizoRoute,
-  BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRoute:
-    BlogAReuniaoFantasmaVoceEstaPresenteOuApenasConectadoRoute,
-  BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRoute:
-    BlogComunicacaoNaoViolentaJamaisVaiSerPerfumariaRoute,
-  BlogEmpresasPrecisamEnxergarAlemDoCrachaRoute:
-    BlogEmpresasPrecisamEnxergarAlemDoCrachaRoute,
+  BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport

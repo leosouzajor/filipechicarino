@@ -8,8 +8,25 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
     server: { entry: "server" },
+    prerender: {
+      enabled: true,
+      routes: [
+        '/',
+        '/quem-sou',
+        '/solucoes',
+        '/contato',
+        '/blog',
+        '/blog/',
+        '/blog/a-clickzacao-da-vida',
+        '/blog/a-engenharia-do-prejuizo',
+        '/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado',
+        '/blog/comunicacao-nao-violenta-jamais-vai-ser-perfumaria',
+        '/blog/empresas-precisam-enxergar-alem-do-cracha'
+      ],
+      crawlLinks: true,
+      autoSubfolderIndex: true
+    }
   },
+  nitro: process.env.npm_lifecycle_event === 'build:static' ? false : undefined
 });

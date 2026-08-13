@@ -2,47 +2,23 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { images } from "@/lib/assets";
 import { Link } from "@tanstack/react-router";
-
-const recentArticles = [
-  {
-    id: 5,
-    title: "A engenharia do prejuízo",
-    excerpt: "O impacto do vício em apostas virtuais na saúde pública e na economia do Brasil",
-    category: "ARTIGO",
-    date: "05 Ago 2026",
-    readTime: "5 min",
-    author: "Filipe Chicarino",
-    link: "/blog/a-engenharia-do-prejuizo",
-    image: images.artigoEngenhariaDoPrejuizo,
-    authorImage: images.autorAvatar,
-  },
-  {
-    id: 4,
-    title: "A Reunião Fantasma: você está presente ou apenas conectado?",
-    excerpt: "92% dos profissionais admitem realizar outras tarefas durante uma reunião online",
-    category: "ARTIGO",
-    date: "28 Mar 2026",
-    readTime: "4 min",
-    author: "Filipe Chicarino",
-    link: "/blog/a-reuniao-fantasma-voce-esta-presente-ou-apenas-conectado",
-    image: images.unsplashReuniao,
-    authorImage: images.autorAvatar,
-  },
-  {
-    id: 3,
-    title: "A Clickzação da Vida",
-    excerpt: "O que o filme de Adam Sandler nos ensinou (e ignoramos)",
-    category: "ARTIGO",
-    date: "22 Mar 2026",
-    readTime: "7 min",
-    author: "Filipe Chicarino",
-    link: "/blog/a-clickzacao-da-vida",
-    image: images.unsplashClickzacao,
-    authorImage: images.autorAvatar,
-  },
-];
+import { getAllPosts } from "@/lib/blog";
 
 const BlogSection = () => {
+  const posts = getAllPosts().slice(0, 3);
+  const recentArticles = posts.map((post, index) => ({
+    id: index,
+    title: post.title,
+    excerpt: post.excerpt,
+    category: "ARTIGO",
+    date: post.date,
+    readTime: post.readTime,
+    author: post.author,
+    link: `/blog/${post.slug}`,
+    image: post.coverImage,
+    authorImage: images.autorAvatar,
+  }));
+
   return (
     <section className="py-24 px-4 md:px-8 lg:px-16 bg-[#F5F3EF]">
       <div className="container mx-auto max-w-7xl">
