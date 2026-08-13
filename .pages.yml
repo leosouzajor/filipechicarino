@@ -1,3 +1,7 @@
+settings:
+  commit:
+    identity: user
+    
 media:
   input: public/images/blog
   output: /images/blog
