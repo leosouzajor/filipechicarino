@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-blue: #001F3F;
+  --terracotta: #C85A3A;
+  --cream: #F5F3EF;
+  --white: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#F5F3EF] text-[#001F3F];
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7; /* Task 6: Set line-height to 1.7 */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+@layer components {
+  /* Task 5: Increase vertical padding on all sections */
+  .section-padding {
+    @apply py-24 md:py-32 px-4 md:px-8 lg:px-16;
+  }
+  
+  .container-width {
+    @apply container mx-auto max-w-7xl;
+  }
+  
+  /* Task 7: Card and Image styling refinements */
+  .card-premium {
+    @apply bg-white rounded-[8px] shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .image-premium {
+    @apply rounded-[8px] shadow-[0_4px_12px_rgba(0,0,0,0.08)];
+  }
+
+  /* Task 8: Button and CTA consistency */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-[#C85A3A] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#B84A2A] transition-all duration-300 shadow-md hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent border-2 border-[#001F3F] text-[#001F3F] px-8 py-3 rounded-lg font-semibold text-lg hover:bg-[#001F3F] hover:text-white transition-all duration-300;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-bold leading-tight;
+  }
+  
+  /* Task 6: Max width for text blocks */
+  .text-content-optimized {
+    @apply max-w-[800px] mx-auto;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F3EF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #001F3F;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C85A3A;
+}

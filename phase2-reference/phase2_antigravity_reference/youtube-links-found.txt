@@ -1,0 +1,15 @@
+YouTube / thumbnail URLs found in the original Phase 2 page source:
+
+[QuemSouPage.jsx] https://www.youtube.com/embed/Tytu1tA2t0A?rel=0
+[SolucoesPage.jsx] https://youtu.be/AVHyTPrsLjU
+[SolucoesPage.jsx] https://img.youtube.com/vi/AVHyTPrsLjU/maxresdefault.jpg
+[SolucoesPage.jsx] https://youtu.be/d1vLeM7r8nk
+[SolucoesPage.jsx] https://img.youtube.com/vi/d1vLeM7r8nk/maxresdefault.jpg
+[SolucoesPage.jsx] https://youtu.be/2na7fAnhjVg
+[SolucoesPage.jsx] https://img.youtube.com/vi/2na7fAnhjVg/maxresdefault.jpg
+[SolucoesPage.jsx] https://www.youtube.com/watch?v=4k3H035FUxs
+[SolucoesPage.jsx] https://img.youtube.com/vi/4k3H035FUxs/maxresdefault.jpg
+[SolucoesPage.jsx] https://www.youtube.com/watch?v=gTl6FXBX2oc
+[SolucoesPage.jsx] https://img.youtube.com/vi/gTl6FXBX2oc/maxresdefault.jpg
+[SolucoesPage.jsx] https://www.youtube.com/watch?v=m_Tdsl8q5T0
+[SolucoesPage.jsx] https://img.youtube.com/vi/m_Tdsl8q5T0/maxresdefault.jpg
