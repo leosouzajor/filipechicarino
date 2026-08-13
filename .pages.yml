@@ -1,41 +1,68 @@
 media:
   input: public/images/blog
   output: /images/blog
+  rename: safe
 
 content:
   - name: artigos
     label: Artigos
     type: collection
     path: content/blog
-    format: frontmatter
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+
+    view:
+      primary: title
+      sort: date
+      order: desc
+
     fields:
       - name: title
         label: Título
         type: string
         required: true
+
       - name: subtitle
         label: Subtítulo
         type: string
+
       - name: date
         label: Data
         type: string
+        required: true
         description: "Formato sugerido: DD MMM YYYY (ex: 15 Mar 2026)"
+
       - name: readTime
         label: Tempo de leitura
         type: string
-        description: "Ex: 5 min de leitura"
+        description: "Ex: 5 min"
+
+      - name: author
+        label: Autor
+        type: string
+        required: true
+
       - name: excerpt
         label: Resumo
         type: text
+
       - name: coverImage
         label: Imagem de capa
         type: image
+        required: true
+
       - name: seoTitle
         label: Título SEO
         type: string
+
       - name: seoDescription
         label: Descrição SEO
-        type: string
+        type: text
+
       - name: body
         label: Corpo do artigo
         type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: true
