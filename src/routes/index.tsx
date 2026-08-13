@@ -1,24 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Header from "@/components/site/Header";
+import Footer from "@/components/site/Footer";
+import HeroSection from "@/components/home/HeroSection";
+import QuemSouSection from "@/components/home/QuemSouSection";
+import NR1Section from "@/components/home/NR1Section";
+import ParceirosSection from "@/components/home/ParceirosSection";
+import NarrativasSection from "@/components/home/NarrativasSection";
+import BlogSection from "@/components/home/BlogSection";
+import ContactSection from "@/components/home/ContactSection";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Filipe Chicarino - Comunicação Humanizada e Não-Violenta" },
+      {
+        name: "description",
+        content:
+          "Filipe Chicarino é facilitador em comunicação humanizada. Palestras sobre NR-1, treinamentos em CNV e produção audiovisual para empresas.",
+      },
+    ],
+  }),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function HomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-white">
+      <Header />
+      <main>
+        <HeroSection />
+        <QuemSouSection />
+        <NR1Section />
+        <ParceirosSection />
+        <NarrativasSection />
+        <BlogSection />
+        <ContactSection />
+      </main>
+      <Footer />
     </div>
   );
 }
