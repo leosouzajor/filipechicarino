@@ -125,8 +125,8 @@ function ContatoPage() {
               animate={{ opacity: 1, x: 0 }} 
               transition={{ delay: 0.2 }}
             >
-              <div className="bg-white p-8 md:p-10 rounded-[8px] shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
-                <h2 className="text-3xl font-bold text-[#001F3F] font-serif mb-8">Envie uma mensagem</h2>
+              <div className="bg-white p-6 md:p-10 rounded-[8px] shadow-[0_4px_12px_rgba(0,0,0,0.08)] overflow-hidden">
+                <h2 className="text-3xl font-bold text-[#001F3F] font-serif mb-8 break-words">Envie uma mensagem</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label className="block text-sm font-semibold text-[#001F3F] mb-2">Nome Completo *</label>
@@ -224,24 +224,24 @@ function ContatoPage() {
 
               <div className="space-y-8">
                 <div className="flex items-start gap-6 group">
-                  <div className="w-12 h-12 bg-[#F5F3EF] rounded-full flex items-center justify-center group-hover:bg-[#C85A3A] transition-colors duration-300">
+                  <div className="w-12 h-12 bg-[#F5F3EF] rounded-full flex items-center justify-center shrink-0 group-hover:bg-[#C85A3A] transition-colors duration-300">
                     <Mail className="w-6 h-6 text-[#C85A3A] group-hover:text-white transition-colors" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <h4 className="font-bold text-[#001F3F] text-lg mb-1">E-mail</h4>
-                    <a href="mailto:contato@filipechicarino.com.br" className="text-gray-600 hover:text-[#C85A3A] transition-colors text-lg">
+                    <a href="mailto:contato@filipechicarino.com.br" className="text-gray-600 hover:text-[#C85A3A] transition-colors text-base md:text-lg break-all">
                       contato@filipechicarino.com.br
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-6 group">
-                  <div className="w-12 h-12 bg-[#F5F3EF] rounded-full flex items-center justify-center group-hover:bg-[#C85A3A] transition-colors duration-300">
+                  <div className="w-12 h-12 bg-[#F5F3EF] rounded-full flex items-center justify-center shrink-0 group-hover:bg-[#C85A3A] transition-colors duration-300">
                     <Phone className="w-6 h-6 text-[#C85A3A] group-hover:text-white transition-colors" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <h4 className="font-bold text-[#001F3F] text-lg mb-1">WhatsApp / Telefone</h4>
-                    <a href="tel:+5527981178654" className="text-gray-600 hover:text-[#C85A3A] transition-colors text-lg">
+                    <a href="tel:+5527981178654" className="text-gray-600 hover:text-[#C85A3A] transition-colors text-base md:text-lg">
                       (27) 981178654
                     </a>
                   </div>
