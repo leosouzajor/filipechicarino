@@ -1,0 +1,32 @@
+[
+  {
+    "file": "BlogPage.jsx",
+    "title": "Blog | Filipe Chicarino - Insights sobre Comunicação e Liderança",
+    "description": "Artigos sobre comunicação não-violenta, saúde mental no trabalho, NR-1 e liderança empática."
+  },
+  {
+    "file": "Article1.jsx",
+    "title": "Empresas precisam enxergar além do crachá | Filipe Chicarino",
+    "description": "O cenário da saúde mental no Brasil, a NR1 e os riscos psicossociais"
+  },
+  {
+    "file": "Article2.jsx",
+    "title": "Comunicação não Violenta jamais vai ser perfumaria | Filipe Chicarino",
+    "description": "A Comunicação Não Violenta tira a comunicação do campo do conflito e a coloca no campo da eficiência"
+  },
+  {
+    "file": "Article3.jsx",
+    "title": "A Clickzação da Vida | Filipe Chicarino",
+    "description": "O que o filme de Adam Sandler nos ensinou (e ignoramos)"
+  },
+  {
+    "file": "Article4.jsx",
+    "title": "A Reunião Fantasma: você está presente ou apenas conectado? | Filipe Chicarino",
+    "description": "92% dos profissionais admitem realizar outras tarefas durante uma reunião online"
+  },
+  {
+    "file": "Article5.jsx",
+    "title": "A engenharia do prejuízo | Filipe Chicarino",
+    "description": "O impacto do vício em apostas virtuais na saúde pública e na economia do Brasil"
+  }
+]
