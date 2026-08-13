@@ -44,16 +44,16 @@ export function getAllPosts(): BlogPost[] {
   };
   
   const parseFrontmatter = (fileContent: string) => {
-    const normalized = fileContent.replace(/^\uFEFF/, '');
-    const match = normalized.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
-    if (!match) return { data: {}, content: normalized };
+    const normalizedContent = fileContent.replace(/^\uFEFF/, '');
+    const match = normalizedContent.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+    if (!match) return { data: {}, content: normalizedContent };
     
     try {
       const data = parse(match[1]) || {};
       return { data, content: match[2] };
     } catch (e) {
       console.error("Error parsing frontmatter YAML:", e);
-      return { data: {}, content: match[2] || fileContent };
+      return { data: {}, content: match[2] || normalizedContent };
     }
   };
   
