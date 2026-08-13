@@ -19,7 +19,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Localização",
-    value: "Serra, Espírito Santo - Brasil",
+    value: "Espírito Santo - Brasil",
     link: null,
   },
 ];
