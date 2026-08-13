@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Link } from '@tanstack/react-router';
 
 const contactInfo = [
   {
@@ -76,10 +77,10 @@ const ContactSection = () => {
             ))}
           </div>
 
-          <a href="/contato" className="btn-primary">
+          <Link to="/contato" className="btn-primary">
             Ir para a página de contato
             <Send className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
