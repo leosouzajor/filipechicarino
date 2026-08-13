@@ -8,9 +8,9 @@ const QuemSouSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-padding bg-[#F5F3EF] border-b border-gray-200" ref={ref}>
-      <div className="container mx-auto max-w-7xl">
-        <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+    <section className="section-padding bg-[#F5F3EF] border-b border-gray-200 py-16 md:py-24" ref={ref}>
+      <div className="container mx-auto max-w-7xl px-4 md:px-8">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-24 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -18,19 +18,18 @@ const QuemSouSection = () => {
             transition={{ duration: 0.8 }}
             className="order-2 md:order-1"
           >
-            <div className="mb-8">
-              <span className="text-[#C85A3A] font-bold tracking-[0.2em] text-sm uppercase mb-4 block">
+            <div className="mb-6 md:mb-8">
+              <span className="text-[#C85A3A] font-bold tracking-[0.2em] text-xs md:text-sm uppercase mb-3 md:mb-4 block">
                 Autoridade
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#001F3F] font-serif mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#001F3F] font-serif mb-4 md:mb-6 leading-tight">
                 O HumanizaDOR
               </h2>
-              <div className="w-24 h-1 bg-[#C85A3A] mb-8"></div>
+              <div className="w-16 md:w-24 h-1 bg-[#C85A3A] mb-6 md:mb-8"></div>
             </div>
 
-            <div className="prose prose-lg text-gray-700 font-light leading-[1.7] mb-10 max-w-[800px]">
-              <h3 className="text-2xl font-serif text-[#001F3F] mb-4"></h3>
-              <p className="text-xl leading-[1.7] mb-6">
+            <div className="prose prose-base md:prose-lg text-gray-700 font-light leading-[1.7] mb-8 md:mb-10 max-w-[800px]">
+              <p className="text-base md:text-xl leading-[1.7] mb-6">
                 Acredito que o maior ruído do nosso tempo não é o excesso de informação, mas a falta
                 de conexão. Minha atuação como Humanizador de processos e narrativas nasce da
                 urgência de devolver o sentido e a profundidade às interações humanas. Por meio da
@@ -41,8 +40,8 @@ const QuemSouSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-              <a href="/quem-sou" className="btn-primary group">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 items-stretch sm:items-center">
+              <a href="/quem-sou" className="btn-primary group w-full sm:w-auto text-center justify-center px-6 py-4">
                 CONHEÇA A TRAJETÓRIA
                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
               </a>
@@ -56,7 +55,7 @@ const QuemSouSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative order-1 md:order-2"
           >
-            <div className="relative z-10 rounded-[8px] overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.08)] aspect-[3/4] max-w-md mx-auto border-8 border-white">
+            <div className="relative z-10 rounded-[8px] overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.08)] aspect-[3/4] max-w-[260px] sm:max-w-[320px] md:max-w-md mx-auto border-4 md:border-8 border-white">
               <img
                 src={images.retratoFilipe}
                 alt="Filipe Chicarino - Facilitador de Comunicação"

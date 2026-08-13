@@ -70,7 +70,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg transition-colors duration-300 text-[#001F3F] hover:bg-[#001F3F]/5"
+            className="md:hidden p-3 rounded-lg transition-colors duration-300 text-[#001F3F] hover:bg-[#001F3F]/5"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -88,19 +88,19 @@ const Header = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-white border-t border-gray-100 shadow-xl overflow-hidden"
           >
-            <nav className="container mx-auto px-4 py-6 flex flex-col space-y-4">
+            <nav className="container mx-auto px-4 py-6 flex flex-col space-y-2">
               {menuItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-[#001F3F] font-medium text-lg hover:text-[#C85A3A] transition-colors duration-300 py-2 border-b border-[#001F3F]/10 last:border-0"
+                  className="text-[#001F3F] font-medium text-lg hover:text-[#C85A3A] transition-colors duration-300 py-3 border-b border-[#001F3F]/10 last:border-0"
                 >
                   {item.name}
                 </a>
               ))}
 
-              <div className="flex items-center gap-6 pt-4 mt-2 border-t border-gray-200">
+              <div className="flex flex-wrap items-center gap-6 pt-4 mt-2 border-t border-gray-200">
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
