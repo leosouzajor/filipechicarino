@@ -44,8 +44,9 @@ export function getAllPosts(): BlogPost[] {
   };
   
   const parseFrontmatter = (fileContent: string) => {
-    const match = fileContent.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
-    if (!match) return { data: {}, content: fileContent };
+    const normalized = fileContent.replace(/^\uFEFF/, '');
+    const match = normalized.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+    if (!match) return { data: {}, content: normalized };
     
     try {
       const data = parse(match[1]) || {};
