@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import { parse } from 'yaml';
 
 export interface BlogPost {
   slug: string;
@@ -43,9 +43,22 @@ export function getAllPosts(): BlogPost[] {
     return dateStr as string; // fallback
   };
   
+  const parseFrontmatter = (fileContent: string) => {
+    const match = fileContent.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+    if (!match) return { data: {}, content: fileContent };
+    
+    try {
+      const data = parse(match[1]) || {};
+      return { data, content: match[2] };
+    } catch (e) {
+      console.error("Error parsing frontmatter YAML:", e);
+      return { data: {}, content: match[2] || fileContent };
+    }
+  };
+  
   const posts = Object.entries(mdFiles).map(([path, rawContent]) => {
     const slug = path.split('/').pop()?.replace(/\.md$/, '') || '';
-    const { data, content } = matter(rawContent as string);
+    const { data, content } = parseFrontmatter(rawContent as string);
     
     return {
       slug,
