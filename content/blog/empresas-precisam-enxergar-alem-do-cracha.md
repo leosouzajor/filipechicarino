@@ -1,7 +1,7 @@
 ---
 title: "Empresas precisam enxergar além do crachá"
 subtitle: "O cenário da saúde mental no Brasil, a NR1 e os riscos psicossociais"
-date: "10 Mar 2026"
+date: "2026-03-10"
 readTime: "6 min de leitura"
 author: "Filipe Chicarino"
 coverImage: "/images/unsplash-cracha.jpg"

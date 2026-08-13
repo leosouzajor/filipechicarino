@@ -1,7 +1,7 @@
 ---
 title: "A Reunião Fantasma: você está presente ou apenas conectado?"
 subtitle: "92% dos profissionais admitem realizar outras tarefas durante uma reunião online"
-date: "28 Mar 2026"
+date: "2026-03-28"
 readTime: "4 min de leitura"
 author: "Filipe Chicarino"
 coverImage: "/images/unsplash-reuniao.jpg"

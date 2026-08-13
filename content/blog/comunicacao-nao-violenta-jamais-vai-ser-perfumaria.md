@@ -1,7 +1,7 @@
 ---
 title: "Comunicação não Violenta jamais vai ser perfumaria"
 subtitle: "A Comunicação Não Violenta tira a comunicação do campo do conflito e a coloca no campo da eficiência"
-date: "15 Mar 2026"
+date: "2026-03-15"
 readTime: "5 min de leitura"
 author: "Filipe Chicarino"
 coverImage: "/images/unsplash-cnv.jpg"

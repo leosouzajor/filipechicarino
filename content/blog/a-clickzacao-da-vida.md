@@ -1,7 +1,7 @@
 ---
 title: "A Clickzação da Vida"
 subtitle: "O que o filme de Adam Sandler nos ensinou (e ignoramos)"
-date: "22 Mar 2026"
+date: "2026-03-22"
 readTime: "7 min de leitura"
 author: "Filipe Chicarino"
 coverImage: "/images/unsplash-clickzacao.jpg"

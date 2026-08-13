@@ -1,7 +1,7 @@
 ---
 title: "A engenharia do prejuízo"
 subtitle: "O impacto do vício em apostas virtuais na saúde pública e na economia do Brasil"
-date: "05 Ago 2026"
+date: "2026-08-05"
 readTime: "5 MIN DE LEITURA"
 author: "Filipe Chicarino"
 coverImage: "/images/artigo-engenharia-do-prejuizo.jpg"

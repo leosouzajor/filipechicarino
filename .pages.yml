@@ -1,6 +1,7 @@
 media:
-  input: public/images/blog
-  output: /images/blog
+  input: public/images
+  output: /images
+  rename: safe
 
 content:
   - name: artigos
@@ -18,8 +19,9 @@ content:
         type: string
       - name: date
         label: Data
-        type: string
-        description: "Formato sugerido: DD MMM YYYY (ex: 15 Mar 2026)"
+        type: date
+        options:
+          format: yyyy-MM-dd
       - name: readTime
         label: Tempo de leitura
         type: string
@@ -30,6 +32,9 @@ content:
       - name: coverImage
         label: Imagem de capa
         type: image
+        media:
+          input: public/images/blog
+          output: /images/blog
       - name: seoTitle
         label: Título SEO
         type: string
@@ -39,3 +44,6 @@ content:
       - name: body
         label: Corpo do artigo
         type: rich-text
+        media:
+          input: public/images/blog
+          output: /images/blog
