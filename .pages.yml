@@ -1,6 +1,6 @@
 media:
-  input: public/images
-  output: /images
+  input: public/images/blog
+  output: /images/blog
   rename: safe
 
 content:
@@ -10,6 +10,10 @@ content:
     path: content/blog
     format: yaml-frontmatter
     filename: "{primary}.md"
+    operations:
+      create: true
+      rename: false
+      delete: true
 
     view:
       primary: title
@@ -51,9 +55,6 @@ content:
         label: Imagem de capa
         type: image
         required: true
-        media:
-          input: public/images/blog
-          output: /images/blog
 
       - name: seoTitle
         label: Título SEO
@@ -67,9 +68,6 @@ content:
         label: Corpo do artigo
         type: rich-text
         required: true
-        media:
-          input: public/images/blog
-          output: /images/blog
         options:
           format: markdown
           switcher: true
