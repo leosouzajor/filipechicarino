@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChicaRouteImport } from './routes/chica'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as QuemSouRouteImport } from './routes/quem-sou'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
@@ -19,6 +20,11 @@ import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChicaRoute = ChicaRouteImport.update({
+  id: '/chica',
+  path: '/chica',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -49,6 +55,7 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chica': typeof ChicaRoute
   '/contato': typeof ContatoRoute
   '/quem-sou': typeof QuemSouRoute
   '/solucoes': typeof SolucoesRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chica': typeof ChicaRoute
   '/contato': typeof ContatoRoute
   '/quem-sou': typeof QuemSouRoute
   '/solucoes': typeof SolucoesRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chica': typeof ChicaRoute
   '/contato': typeof ContatoRoute
   '/quem-sou': typeof QuemSouRoute
   '/solucoes': typeof SolucoesRoute
@@ -75,12 +84,26 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contato' | '/quem-sou' | '/solucoes' | '/blog/$slug' | '/blog/'
+    | '/'
+    | '/chica'
+    | '/contato'
+    | '/quem-sou'
+    | '/solucoes'
+    | '/blog/$slug'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contato' | '/quem-sou' | '/solucoes' | '/blog/$slug' | '/blog'
+  to:
+    | '/'
+    | '/chica'
+    | '/contato'
+    | '/quem-sou'
+    | '/solucoes'
+    | '/blog/$slug'
+    | '/blog'
   id:
     | '__root__'
     | '/'
+    | '/chica'
     | '/contato'
     | '/quem-sou'
     | '/solucoes'
@@ -90,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChicaRoute: typeof ChicaRoute
   ContatoRoute: typeof ContatoRoute
   QuemSouRoute: typeof QuemSouRoute
   SolucoesRoute: typeof SolucoesRoute
@@ -104,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chica': {
+      id: '/chica'
+      path: '/chica'
+      fullPath: '/chica'
+      preLoaderRoute: typeof ChicaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -146,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChicaRoute: ChicaRoute,
   ContatoRoute: ContatoRoute,
   QuemSouRoute: QuemSouRoute,
   SolucoesRoute: SolucoesRoute,

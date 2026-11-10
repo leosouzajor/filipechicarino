@@ -16,6 +16,7 @@ export default defineConfig({
         '/quem-sou',
         '/solucoes',
         '/contato',
+        '/chica',
         '/blog',
         '/blog/',
         '/blog/a-clickzacao-da-vida',
