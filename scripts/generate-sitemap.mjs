@@ -11,6 +11,7 @@ const coreRoutes = [
   { loc: '/solucoes', priority: '0.8' },
   { loc: '/blog/', priority: '0.8' },
   { loc: '/contato', priority: '0.8' },
+  { loc: '/chica', priority: '0.8' },
 ];
 
 let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

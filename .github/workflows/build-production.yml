@@ -40,6 +40,10 @@ jobs:
             echo "Error: dist/client/index.html not found!"
             exit 1
           fi
+          if [ ! -f "dist/client/chica/index.html" ]; then
+            echo "Error: dist/client/chica/index.html not found!"
+            exit 1
+          fi
           if [ ! -f "dist/client/blog/index.html" ]; then
             echo "Error: dist/client/blog/index.html not found!"
             exit 1
