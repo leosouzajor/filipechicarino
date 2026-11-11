@@ -1,20 +1,21 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Phone, MapPin, Send, Linkedin } from "lucide-react";
 import { Link } from '@tanstack/react-router';
+import { LINKEDIN_URL } from "@/components/site/Header";
 
 const contactInfo = [
   {
-    icon: Mail,
-    title: "Email",
-    value: "contato@filipechicarino.com.br",
-    link: "mailto:contato@filipechicarino.com.br",
+    icon: Phone,
+    title: "WhatsApp / Telefone",
+    value: "(27) 98117-8654",
+    link: "https://wa.me/5527981178654",
   },
   {
-    icon: Phone,
-    title: "Telefone",
-    value: "(27) 981178654",
-    link: "tel:+5527981178654",
+    icon: Linkedin,
+    title: "LinkedIn",
+    value: "Filipe Chicarino",
+    link: LINKEDIN_URL,
   },
   {
     icon: MapPin,
@@ -66,6 +67,8 @@ const ContactSection = () => {
                 {info.link ? (
                   <a
                     href={info.link}
+                    target={info.link.startsWith("http") ? "_blank" : undefined}
+                    rel={info.link.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="text-gray-600 hover:text-[#C85A3A] transition-colors duration-300 text-base md:text-lg leading-[1.7]"
                   >
                     {info.value}

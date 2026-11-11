@@ -23,14 +23,14 @@ export const Route = createFileRoute('/blog/$slug')({
         { name: "description", content: loaderData.seoDescription },
         { property: "og:title", content: loaderData.seoTitle },
         { property: "og:description", content: loaderData.seoDescription },
-        { property: "og:url", content: `https://filipechicarino.com.br/blog/${loaderData.slug}` },
+        { property: "og:url", content: `https://filipechicarino.com/blog/${loaderData.slug}` },
         { property: "og:image", content: loaderData.coverImage },
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:image", content: loaderData.coverImage },
       ],
       links: [
-        { rel: "canonical", href: `https://filipechicarino.com.br/blog/${loaderData.slug}` }
+        { rel: "canonical", href: `https://filipechicarino.com/blog/${loaderData.slug}` }
       ]
     };
   },

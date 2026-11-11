@@ -15,14 +15,14 @@ export const Route = createFileRoute('/blog/')({
       },
       { property: "og:title", content: "Blog | Filipe Chicarino - Insights sobre Comunicação e Liderança" },
       { property: "og:description", content: "Artigos sobre comunicação não-violenta, saúde mental no trabalho, NR-1 e liderança empática." },
-      { property: "og:url", content: "https://filipechicarino.com.br/blog/" },
+      { property: "og:url", content: "https://filipechicarino.com/blog/" },
       { property: "og:image", content: images.logo },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: images.logo },
     ],
     links: [
-      { rel: "canonical", href: "https://filipechicarino.com.br/blog/" }
+      { rel: "canonical", href: "https://filipechicarino.com/blog/" }
     ]
   }),
   component: BlogPage,

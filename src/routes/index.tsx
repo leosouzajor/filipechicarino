@@ -21,14 +21,14 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Filipe Chicarino - Comunicação Humanizada e Não-Violenta" },
       { property: "og:description", content: "Filipe Chicarino é facilitador em comunicação humanizada. Palestras sobre NR-1, treinamentos em CNV e produção audiovisual para empresas." },
-      { property: "og:url", content: "https://filipechicarino.com.br/" },
+      { property: "og:url", content: "https://filipechicarino.com/" },
       { property: "og:image", content: images.hero },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: images.hero },
     ],
     links: [
-      { rel: "canonical", href: "https://filipechicarino.com.br/" }
+      { rel: "canonical", href: "https://filipechicarino.com/" }
     ]
   }),
   component: HomePage,

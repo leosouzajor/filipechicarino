@@ -9,7 +9,6 @@ import {
   HeartHandshake,
   Instagram,
   Linkedin,
-  Mail,
   MapPin,
   MessageSquareHeart,
   Phone,
@@ -38,10 +37,10 @@ export const Route = createFileRoute("/chica")({
         content:
           "CHICA — Comunicação Humanizada Institucional Conectada ao Acolhimento. Inteligência artificial para uma comunicação mais humana na saúde.",
       },
-      { property: "og:url", content: "https://filipechicarino.com.br/chica" },
+      { property: "og:url", content: "https://filipechicarino.com/chica/" },
       {
         property: "og:image",
-        content: `https://filipechicarino.com.br${images.retratoFilipe}`,
+        content: `https://filipechicarino.com${images.retratoFilipe}`,
       },
       { property: "og:image:type", content: "image/jpeg" },
       {
@@ -62,10 +61,10 @@ export const Route = createFileRoute("/chica")({
       },
       {
         name: "twitter:image",
-        content: `https://filipechicarino.com.br${images.retratoFilipe}`,
+        content: `https://filipechicarino.com${images.retratoFilipe}`,
       },
     ],
-    links: [{ rel: "canonical", href: "https://filipechicarino.com.br/chica" }],
+    links: [{ rel: "canonical", href: "https://filipechicarino.com/chica/" }],
   }),
   component: ChicaLandingPage,
 });
@@ -91,15 +90,6 @@ const objectives = [
       "Apoiar as equipes na produção de comunicações, sem abrir mão da qualidade e da revisão humana.",
     icon: Clock,
   },
-] as const;
-
-const careSettings = [
-  "Hospitais",
-  "UPAs",
-  "Unidades Básicas de Saúde",
-  "Clínicas",
-  "Laboratórios",
-  "Outros serviços de saúde",
 ] as const;
 
 const everydayContexts = [
@@ -520,8 +510,8 @@ function ChicaLandingPage() {
 
                   <blockquote className="font-serif text-lg sm:text-xl text-[#001F3F] leading-relaxed bg-white p-5 sm:p-6 rounded-xl border border-[#C85A3A]/25 shadow-xs">
                     “Infelizmente, seu exame foi cancelado porque o equipamento não está disponível.
-                    Sabemos que essa notícia pode atrapalhar seus planos. Sentimos muito por isso.
-                    Por enquanto, pedimos que aguarde um novo contato sobre o exame.”
+                    Sabemos que essa notícia pode atrapalhar seus planos. Por enquanto, pedimos que
+                    aguarde um novo contato sobre o exame.”
                   </blockquote>
                 </div>
 
@@ -737,26 +727,19 @@ function ChicaLandingPage() {
 
               <div className="max-w-3xl mx-auto space-y-6 text-lg sm:text-xl text-white/90 font-light leading-relaxed">
                 <p>
-                  A Chica está em desenvolvimento e nasce com a proposta de atuar em hospitais,
-                  UPAs, unidades básicas de saúde, clínicas, laboratórios e outros serviços.
+                  A Chica está em desenvolvimento e nasce com a proposta de apoiar quem cuida e quem
+                  é cuidado em diferentes momentos da jornada de saúde.
                 </p>
                 <p>
                   É uma iniciativa que une comunicação humanizada e tecnologia para enfrentar um
-                  desafio presente em diferentes pontos da jornada do paciente: fazer com que a
-                  informação chegue de um jeito que as pessoas realmente consigam compreender.
+                  desafio presente em múltiplos pontos de atendimento: fazer com que a informação
+                  chegue de um jeito que as pessoas realmente consigam compreender.
                 </p>
-              </div>
-
-              {/* Care settings pills */}
-              <div className="flex flex-wrap justify-center gap-2.5 pt-2 max-w-3xl mx-auto">
-                {careSettings.map((place) => (
-                  <span
-                    key={place}
-                    className="px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-white/10 text-white border border-white/15"
-                  >
-                    {place}
-                  </span>
-                ))}
+                <p className="text-base sm:text-lg text-white/80 font-normal pt-2">
+                  Seu campo de aplicação abrange hospitais, UPAs, unidades básicas de saúde,
+                  clínicas, laboratórios e outros serviços de saúde onde a clareza e o acolhimento
+                  são indispensáveis.
+                </p>
               </div>
 
               {/* Manifesto Closing Statements */}
@@ -813,12 +796,14 @@ function ChicaLandingPage() {
                   </a>
 
                   <a
-                    href="mailto:contato@filipechicarino.com.br"
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-between gap-3 bg-[#F5F3EF] text-[#001F3F] px-5 sm:px-6 py-4 rounded-xl font-medium text-sm sm:text-base hover:bg-[#EBE6DF] transition-colors motion-reduce:transition-none border border-[#001F3F]/10"
                   >
                     <span className="inline-flex items-center gap-3 min-w-0">
-                      <Mail className="w-5 h-5 text-[#C85A3A] shrink-0" />
-                      <span className="truncate">contato@filipechicarino.com.br</span>
+                      <Linkedin className="w-5 h-5 text-[#C85A3A] shrink-0" />
+                      <span className="truncate">Conhecer o LinkedIn de Filipe</span>
                     </span>
                     <ArrowUpRight className="w-4 h-4 shrink-0 text-[#001F3F]/60" />
                   </a>
@@ -899,15 +884,6 @@ function ChicaLandingPage() {
                 Canais Públicos
               </h3>
               <ul className="space-y-2.5 text-white/75">
-                <li className="flex items-center gap-2.5 min-w-0">
-                  <Mail className="w-4 h-4 text-[#C85A3A] shrink-0" />
-                  <a
-                    href="mailto:contato@filipechicarino.com.br"
-                    className="hover:text-white transition-colors motion-reduce:transition-none break-all"
-                  >
-                    contato@filipechicarino.com.br
-                  </a>
-                </li>
                 <li className="flex items-center gap-2.5">
                   <Phone className="w-4 h-4 text-[#C85A3A] shrink-0" />
                   <a

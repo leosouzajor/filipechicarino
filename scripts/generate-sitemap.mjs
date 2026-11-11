@@ -3,7 +3,7 @@ import { join } from 'path';
 
 const blogDir = 'content/blog';
 const sitemapPath = 'public/sitemap.xml';
-const baseUrl = 'https://filipechicarino.com.br';
+const baseUrl = 'https://filipechicarino.com';
 
 const coreRoutes = [
   { loc: '/', priority: '1.0' },
@@ -11,7 +11,7 @@ const coreRoutes = [
   { loc: '/solucoes', priority: '0.8' },
   { loc: '/blog/', priority: '0.8' },
   { loc: '/contato', priority: '0.8' },
-  { loc: '/chica', priority: '0.8' },
+  { loc: '/chica/', priority: '0.8' },
 ];
 
 let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

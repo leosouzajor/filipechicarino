@@ -16,14 +16,14 @@ export const Route = createFileRoute('/solucoes')({
       },
       { property: "og:title", content: "Soluções Corporativas | Filipe Chicarino" },
       { property: "og:description", content: "Palestras, treinamentos, mentoria e consultoria para transformar o ambiente corporativo com Comunicação Não Violenta e gestão de riscos psicossociais." },
-      { property: "og:url", content: "https://filipechicarino.com.br/solucoes" },
+      { property: "og:url", content: "https://filipechicarino.com/solucoes" },
       { property: "og:image", content: images.hero },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: images.hero },
     ],
     links: [
-      { rel: "canonical", href: "https://filipechicarino.com.br/solucoes" }
+      { rel: "canonical", href: "https://filipechicarino.com/solucoes" }
     ]
   }),
   component: SolucoesPage,
