@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Linkedin, MapPin, Phone } from "lucide-react";
 import { INSTAGRAM_URL, LINKEDIN_URL } from "@/components/site/Header";
 
 const Footer = () => {
@@ -105,18 +105,25 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 md:space-y-4 text-gray-400">
               <li className="flex items-start gap-3 py-1 md:py-0">
-                <Mail className="w-5 h-5 text-[#C85A3A] mt-1 shrink-0" />
+                <Phone className="w-5 h-5 text-[#C85A3A] mt-1 shrink-0" />
                 <a
-                  href="mailto:contato@filipechicarino.com.br"
+                  href="https://wa.me/5527981178654"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  contato@filipechicarino.com.br
+                  WhatsApp: (27) 98117-8654
                 </a>
               </li>
               <li className="flex items-start gap-3 py-1 md:py-0">
-                <Phone className="w-5 h-5 text-[#C85A3A] mt-1 shrink-0" />
-                <a href="tel:+5527981178654" className="hover:text-white transition-colors">
-                  (27) 981178654
+                <Linkedin className="w-5 h-5 text-[#C85A3A] mt-1 shrink-0" />
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  LinkedIn: Filipe Chicarino
                 </a>
               </li>
               <li className="flex items-start gap-3 py-1 md:py-0">

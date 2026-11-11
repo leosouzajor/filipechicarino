@@ -15,14 +15,14 @@ export const Route = createFileRoute('/quem-sou')({
       },
       { property: "og:title", content: "Quem Sou | Filipe Chicarino - O Facilitador" },
       { property: "og:description", content: "Saiba mais sobre Filipe Chicarino, facilitador de comunicação com 20 anos de experiência, Mestre em Sociologia Política e especialista em CNV." },
-      { property: "og:url", content: "https://filipechicarino.com.br/quem-sou" },
+      { property: "og:url", content: "https://filipechicarino.com/quem-sou" },
       { property: "og:image", content: images.retratoFilipe },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: images.retratoFilipe },
     ],
     links: [
-      { rel: "canonical", href: "https://filipechicarino.com.br/quem-sou" }
+      { rel: "canonical", href: "https://filipechicarino.com/quem-sou" }
     ]
   }),
   component: QuemSouPage,
