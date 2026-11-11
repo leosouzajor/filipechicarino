@@ -26,7 +26,7 @@ export const Route = createFileRoute("/chica")({
       {
         name: "description",
         content:
-          "A Chica é uma ferramenta de inteligência artificial em desenvolvimento, criada a partir do Método Chicarino de Comunicação Humanizada para apoiar profissionais e instituições de saúde.",
+          "CHICA — Comunicação Humanizada Institucional Conectada ao Acolhimento. Ferramenta de inteligência artificial em desenvolvimento a partir do Método Chicarino.",
       },
       {
         property: "og:title",
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/chica")({
       {
         property: "og:description",
         content:
-          "Mais clareza para quem recebe. Mais tempo para quem cuida. Conheça a Chica, iniciativa fundamentada no Método Chicarino de Comunicação Humanizada.",
+          "CHICA — Comunicação Humanizada Institucional Conectada ao Acolhimento. Inteligência artificial para uma comunicação mais humana na saúde.",
       },
       { property: "og:url", content: "https://filipechicarino.com.br/chica" },
       {
@@ -231,21 +231,36 @@ function ChicaLandingPage() {
                   >
                     CHICA<span className="text-[#C85A3A]">.</span>
                   </h1>
+                  <p className="text-base sm:text-lg md:text-xl font-medium text-[#9A3E22] tracking-normal leading-snug max-w-2xl">
+                    Comunicação Humanizada Institucional Conectada ao Acolhimento
+                  </p>
                   <p className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-[#001F3F]/90 leading-snug max-w-2xl">
                     Inteligência artificial para uma comunicação mais humana na saúde
                   </p>
                 </div>
 
-                {/* Highlight Editorial Pull-quote */}
-                <div className="border-l-4 border-[#C85A3A] pl-5 sm:pl-6 py-3 bg-white/70 rounded-r-xl max-w-2xl">
-                  <p className="font-serif text-xl sm:text-2xl md:text-[26px] font-semibold text-[#001F3F] leading-relaxed">
-                    “Na saúde, quase nunca falta vontade de humanizar. Falta tempo.”
+                {/* O Problema: Bloco Editorial com as duas reflexões complementares */}
+                <div className="border-l-4 border-[#C85A3A] pl-5 sm:pl-6 py-4 bg-white/80 rounded-r-2xl shadow-xs max-w-2xl space-y-3.5">
+                  <span className="block text-xs font-bold uppercase tracking-[0.2em] text-[#9A3E22]">
+                    O problema
+                  </span>
+                  <p className="font-serif text-2xl sm:text-3xl font-bold text-[#001F3F] leading-snug">
+                    “A saúde cuida do corpo e descuida da palavra.”
                   </p>
+                  <p className="text-base sm:text-lg text-[#001F3F]/85 font-normal leading-relaxed">
+                    Na rotina dos serviços de saúde, informações importantes nem sempre chegam às
+                    pessoas com a clareza e o acolhimento necessários.
+                  </p>
+                  <div className="pt-2.5 border-t border-[#001F3F]/10">
+                    <p className="font-serif text-lg sm:text-xl font-medium text-[#001F3F] italic leading-relaxed">
+                      “Na saúde, quase nunca falta vontade de humanizar. Falta tempo.”
+                    </p>
+                  </div>
                 </div>
 
                 <p className="text-lg sm:text-xl text-[#001F3F]/85 font-normal leading-relaxed max-w-2xl">
-                  A Chica nasce para ajudar quem trabalha na saúde a se comunicar melhor com quem é
-                  cuidado.
+                  A Chica nasce para ajudar a enfrentar esse desafio, apoiando quem trabalha na
+                  saúde a se comunicar melhor com quem é cuidado.
                 </p>
 
                 <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5 sm:gap-4">
@@ -276,8 +291,9 @@ function ChicaLandingPage() {
 
                   <div className="space-y-5 text-[#001F3F]/90 text-base sm:text-lg leading-relaxed">
                     <p>
-                      É uma ferramenta de inteligência artificial em desenvolvimento, criada a
-                      partir do{" "}
+                      A Chica — Comunicação Humanizada Institucional Conectada ao Acolhimento — é
+                      uma ferramenta de inteligência artificial em desenvolvimento, criada a partir
+                      do{" "}
                       <strong className="font-semibold text-[#001F3F]">
                         Método Chicarino de Comunicação Humanizada
                       </strong>
@@ -355,13 +371,13 @@ function ChicaLandingPage() {
 
               {/* Chica Adapted Message Card */}
               <article
-                aria-label="Comunicação adaptada pela Chica"
+                aria-label="Comunicação adaptada — Exemplo ilustrativo"
                 className="min-w-0 rounded-2xl bg-[#FDF8F5] border-2 border-[#C85A3A] p-6 sm:p-10 flex flex-col justify-between shadow-[0_12px_32px_rgba(200,90,58,0.12)] relative"
               >
                 <div className="space-y-6">
                   <div className="flex flex-wrap items-center justify-between gap-2.5 border-b border-[#C85A3A]/25 pb-4">
                     <span className="text-xs sm:text-[13px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#9A3E22]">
-                      Comunicação adaptada pela Chica
+                      Comunicação adaptada — Exemplo ilustrativo
                     </span>
                     <span className="text-xs sm:text-[13px] font-semibold px-3 py-1 rounded-full bg-[#C85A3A] text-white">
                       Comunicação humanizada
@@ -369,9 +385,9 @@ function ChicaLandingPage() {
                   </div>
 
                   <blockquote className="font-serif text-lg sm:text-xl text-[#001F3F] leading-relaxed bg-white p-5 sm:p-6 rounded-xl border border-[#C85A3A]/25 shadow-xs">
-                    “Infelizmente, seu exame precisou ser cancelado porque o equipamento não está
-                    disponível. Sabemos que essa mudança pode causar transtornos. Nossa equipe
-                    entrará em contato com informações sobre o reagendamento.”
+                    “Infelizmente, seu exame foi cancelado porque o equipamento não está disponível.
+                    Sabemos que essa notícia pode atrapalhar seus planos. Sentimos muito por isso.
+                    Por enquanto, pedimos que aguarde um novo contato sobre o exame.”
                   </blockquote>
                 </div>
 
@@ -683,8 +699,8 @@ function ChicaLandingPage() {
             <div className="md:col-span-6 min-w-0 space-y-3">
               <div className="flex flex-wrap items-baseline gap-3">
                 <span className="font-serif text-2xl font-bold text-white">CHICA</span>
-                <span className="text-xs uppercase tracking-[0.2em] text-[#E68A6E]">
-                  Comunicação Humanizada na Saúde
+                <span className="text-xs uppercase tracking-[0.16em] text-[#E68A6E]">
+                  Comunicação Humanizada Institucional Conectada ao Acolhimento
                 </span>
               </div>
               <p className="text-sm text-white/75 max-w-md leading-relaxed">
