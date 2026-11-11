@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -109,6 +110,69 @@ const everydayContexts = [
   "Outras situações do cotidiano",
 ] as const;
 
+const animationStyles = `
+/* Keyframe para entrada suave no carregamento inicial */
+@keyframes chicaHeroEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chica-hero-animate-brand {
+  animation: chicaHeroEntrance 600ms cubic-bezier(0.16, 1, 0.3, 1) 40ms both;
+}
+
+.chica-hero-animate-problem {
+  animation: chicaHeroEntrance 650ms cubic-bezier(0.16, 1, 0.3, 1) 160ms both;
+}
+
+.chica-hero-animate-title {
+  animation: chicaHeroEntrance 600ms cubic-bezier(0.16, 1, 0.3, 1) 260ms both;
+}
+
+.chica-hero-animate-actions {
+  animation: chicaHeroEntrance 600ms cubic-bezier(0.16, 1, 0.3, 1) 340ms both;
+}
+
+.chica-hero-animate-card {
+  animation: chicaHeroEntrance 700ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both;
+}
+
+/* O estado oculto do scroll reveal SÓ é ativado após a hidratação do cliente */
+.chica-observer-ready [data-chica-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.chica-observer-ready [data-chica-reveal].is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Acessibilidade para movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .chica-hero-animate-brand,
+  .chica-hero-animate-problem,
+  .chica-hero-animate-title,
+  .chica-hero-animate-actions,
+  .chica-hero-animate-card,
+  .chica-observer-ready [data-chica-reveal] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+`;
+
 function ChicaLandingPage() {
   const currentYear = new Date().getFullYear();
 
@@ -116,8 +180,68 @@ function ChicaLandingPage() {
     "Olá, Filipe! Acessei a página da Chica e gostaria de conhecer mais sobre a iniciativa.",
   )}`;
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const container = document.getElementById("chica-page-root");
+    if (!container) return;
+
+    const revealElements = container.querySelectorAll<HTMLElement>("[data-chica-reveal]");
+    if (!revealElements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const delay = el.getAttribute("data-chica-delay");
+            if (delay) {
+              setTimeout(
+                () => {
+                  el.classList.add("is-visible");
+                },
+                parseInt(delay, 10),
+              );
+            } else {
+              el.classList.add("is-visible");
+            }
+            observer.unobserve(el);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -6% 0px",
+        threshold: 0.12,
+      },
+    );
+
+    container.classList.add("chica-observer-ready");
+
+    revealElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("is-visible");
+      } else {
+        observer.observe(el);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-[#F5F3EF] text-[#001F3F] selection:bg-[#C85A3A] selection:text-white">
+    <div
+      id="chica-page-root"
+      className="min-h-screen w-full overflow-x-hidden bg-[#F5F3EF] text-[#001F3F] selection:bg-[#C85A3A] selection:text-white"
+    >
+      <style dangerouslySetInnerHTML={{ __html: animationStyles }} />
       {/* Skip link for keyboard accessibility */}
       <a
         href="#conteudo-principal"
@@ -224,7 +348,7 @@ function ChicaLandingPage() {
                   </span>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-4 chica-hero-animate-brand">
                   <h1
                     id="chica-hero-heading"
                     className="font-serif text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-[#001F3F] leading-none"
@@ -240,7 +364,7 @@ function ChicaLandingPage() {
                 </div>
 
                 {/* O Problema: Bloco Editorial com as duas reflexões complementares */}
-                <div className="border-l-4 border-[#C85A3A] pl-5 sm:pl-6 py-4 bg-white/80 rounded-r-2xl shadow-xs max-w-2xl space-y-3.5">
+                <div className="border-l-4 border-[#C85A3A] pl-5 sm:pl-6 py-4 bg-white/80 rounded-r-2xl shadow-xs max-w-2xl space-y-3.5 chica-hero-animate-problem">
                   <span className="block text-xs font-bold uppercase tracking-[0.2em] text-[#9A3E22]">
                     O problema
                   </span>
@@ -258,22 +382,22 @@ function ChicaLandingPage() {
                   </div>
                 </div>
 
-                <p className="text-lg sm:text-xl text-[#001F3F]/85 font-normal leading-relaxed max-w-2xl">
+                <p className="text-lg sm:text-xl text-[#001F3F]/85 font-normal leading-relaxed max-w-2xl chica-hero-animate-title">
                   A Chica nasce para ajudar a enfrentar esse desafio, apoiando quem trabalha na
                   saúde a se comunicar melhor com quem é cuidado.
                 </p>
 
-                <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5 sm:gap-4">
+                <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5 sm:gap-4 chica-hero-animate-actions">
                   <a
                     href="#na-pratica"
-                    className="inline-flex items-center justify-center gap-3 bg-[#C85A3A] text-white px-6 sm:px-7 py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-[#AD4729] transition-colors motion-reduce:transition-none shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#C85A3A]"
+                    className="inline-flex items-center justify-center gap-3 bg-[#C85A3A] text-white px-6 sm:px-7 py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-[#AD4729] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 motion-reduce:transition-none shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#C85A3A]"
                   >
                     <span>Veja um exemplo de comunicação</span>
                     <ArrowRight className="w-5 h-5 shrink-0" />
                   </a>
                   <a
                     href="#conhecer-mais"
-                    className="inline-flex items-center justify-center gap-2 bg-white text-[#001F3F] border border-[#001F3F]/20 px-6 py-4 rounded-lg font-semibold text-base sm:text-lg hover:border-[#C85A3A] hover:text-[#C85A3A] transition-colors motion-reduce:transition-none"
+                    className="inline-flex items-center justify-center gap-2 bg-white text-[#001F3F] border border-[#001F3F]/20 px-6 py-4 rounded-lg font-semibold text-base sm:text-lg hover:border-[#C85A3A] hover:text-[#C85A3A] hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 motion-reduce:transition-none"
                   >
                     <span>Conhecer a iniciativa</span>
                   </a>
@@ -281,8 +405,11 @@ function ChicaLandingPage() {
               </div>
 
               {/* Right Column: Editorial Context Card */}
-              <div id="proposito" className="lg:col-span-5 min-w-0 scroll-mt-28">
-                <div className="bg-white rounded-2xl p-6 sm:p-10 shadow-[0_12px_36px_rgba(0,31,63,0.08)] border border-[#001F3F]/10 relative">
+              <div
+                id="proposito"
+                className="lg:col-span-5 min-w-0 scroll-mt-28 chica-hero-animate-card"
+              >
+                <div className="bg-white rounded-2xl p-6 sm:p-10 shadow-[0_12px_36px_rgba(0,31,63,0.08)] border border-[#001F3F]/10 hover:border-[#C85A3A]/30 transition-all duration-500 relative">
                   <div className="w-12 h-1 bg-[#C85A3A] mb-6" />
 
                   <span className="block text-xs font-bold uppercase tracking-[0.2em] text-[#9A3E22] mb-3">
@@ -326,7 +453,10 @@ function ChicaLandingPage() {
           className="py-16 md:py-28 px-4 sm:px-6 md:px-8 lg:px-16 bg-white scroll-mt-20"
         >
           <div className="container mx-auto max-w-6xl">
-            <div className="max-w-3xl mx-auto text-center space-y-4 mb-12 md:mb-16">
+            <div
+              data-chica-reveal
+              className="max-w-3xl mx-auto text-center space-y-4 mb-12 md:mb-16"
+            >
               <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#9A3E22] block">
                 Exemplo concreto
               </span>
@@ -345,8 +475,10 @@ function ChicaLandingPage() {
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-stretch">
               {/* Original Message Card */}
               <article
+                data-chica-reveal
+                data-chica-delay="0"
                 aria-label="Comunicação original"
-                className="min-w-0 rounded-2xl bg-[#F5F3EF] border border-[#001F3F]/15 p-6 sm:p-10 flex flex-col justify-between"
+                className="min-w-0 rounded-2xl bg-[#F5F3EF] border border-[#001F3F]/15 p-6 sm:p-10 flex flex-col justify-between hover:shadow-md transition-all duration-300"
               >
                 <div className="space-y-6">
                   <div className="flex flex-wrap items-center justify-between gap-2.5 border-b border-[#001F3F]/10 pb-4">
@@ -371,8 +503,10 @@ function ChicaLandingPage() {
 
               {/* Chica Adapted Message Card */}
               <article
+                data-chica-reveal
+                data-chica-delay="200"
                 aria-label="Comunicação adaptada — Exemplo ilustrativo"
-                className="min-w-0 rounded-2xl bg-[#FDF8F5] border-2 border-[#C85A3A] p-6 sm:p-10 flex flex-col justify-between shadow-[0_12px_32px_rgba(200,90,58,0.12)] relative"
+                className="min-w-0 rounded-2xl bg-[#FDF8F5] border-2 border-[#C85A3A] p-6 sm:p-10 flex flex-col justify-between shadow-[0_12px_32px_rgba(200,90,58,0.12)] hover:shadow-[0_16px_40px_rgba(200,90,58,0.18)] hover:-translate-y-0.5 transition-all duration-300 relative"
               >
                 <div className="space-y-6">
                   <div className="flex flex-wrap items-center justify-between gap-2.5 border-b border-[#C85A3A]/25 pb-4">
@@ -405,7 +539,10 @@ function ChicaLandingPage() {
             </p>
 
             {/* Key Takeaway Box */}
-            <div className="mt-8 sm:mt-10 rounded-2xl bg-[#001F3F] text-white p-6 sm:p-10 md:p-12 shadow-xl">
+            <div
+              data-chica-reveal
+              className="mt-8 sm:mt-10 rounded-2xl bg-[#001F3F] text-white p-6 sm:p-10 md:p-12 shadow-xl"
+            >
               <div className="grid lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 min-w-0 space-y-4">
                   <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug">
@@ -448,7 +585,7 @@ function ChicaLandingPage() {
           <div className="container mx-auto max-w-6xl">
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               {/* Left Column: Editorial Narrative */}
-              <div className="lg:col-span-7 min-w-0 space-y-6">
+              <div data-chica-reveal className="lg:col-span-7 min-w-0 space-y-6">
                 <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#9A3E22] block">
                   Ética e Responsabilidade
                 </span>
@@ -473,8 +610,8 @@ function ChicaLandingPage() {
               </div>
 
               {/* Right Column: Principle Highlight Card */}
-              <div className="lg:col-span-5 min-w-0">
-                <div className="bg-white rounded-2xl p-6 sm:p-10 border-l-4 border-[#C85A3A] shadow-[0_8px_28px_rgba(0,31,63,0.07)] space-y-6">
+              <div data-chica-reveal data-chica-delay="150" className="lg:col-span-5 min-w-0">
+                <div className="bg-white rounded-2xl p-6 sm:p-10 border-l-4 border-[#C85A3A] shadow-[0_8px_28px_rgba(0,31,63,0.07)] hover:shadow-md transition-all duration-300 space-y-6">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#FDF8F5] text-[#C85A3A] border border-[#C85A3A]/20">
                     <HeartHandshake className="w-6 h-6" />
                   </div>
@@ -511,7 +648,10 @@ function ChicaLandingPage() {
           className="py-16 md:py-28 px-4 sm:px-6 md:px-8 lg:px-16 bg-white scroll-mt-20"
         >
           <div className="container mx-auto max-w-6xl">
-            <div className="max-w-3xl mx-auto text-center space-y-4 mb-12 md:mb-16">
+            <div
+              data-chica-reveal
+              className="max-w-3xl mx-auto text-center space-y-4 mb-12 md:mb-16"
+            >
               <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#9A3E22] block">
                 Objetivos pretendidos
               </span>
@@ -525,12 +665,14 @@ function ChicaLandingPage() {
 
             {/* 3 Objectives Cards */}
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-              {objectives.map((item) => {
+              {objectives.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={item.number}
-                    className="min-w-0 rounded-2xl bg-[#F5F3EF] p-6 sm:p-9 border border-[#001F3F]/10 flex flex-col justify-between hover:border-[#C85A3A]/50 transition-colors motion-reduce:transition-none"
+                    data-chica-reveal
+                    data-chica-delay={index * 140}
+                    className="min-w-0 rounded-2xl bg-[#F5F3EF] p-6 sm:p-9 border border-[#001F3F]/10 flex flex-col justify-between hover:border-[#C85A3A]/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 motion-reduce:transition-none"
                   >
                     <div className="space-y-6">
                       <div className="flex items-center justify-between">
@@ -554,7 +696,10 @@ function ChicaLandingPage() {
             </div>
 
             {/* Transparency & Validation Disclaimer */}
-            <div className="mt-10 rounded-xl bg-[#FDF8F5] border border-[#C85A3A]/30 px-5 sm:px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div
+              data-chica-reveal
+              className="mt-10 rounded-xl bg-[#FDF8F5] border border-[#C85A3A]/30 px-5 sm:px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+            >
               <div className="flex items-start sm:items-center gap-3.5">
                 <CheckCircle2 className="w-5 h-5 text-[#C85A3A] shrink-0 mt-0.5 sm:mt-0" />
                 <p className="text-sm sm:text-base text-[#001F3F]/90 font-medium">
@@ -577,7 +722,7 @@ function ChicaLandingPage() {
             className="absolute inset-0 bg-repeat opacity-5"
             style={{ backgroundImage: `url('${images.cubes}')` }}
           />
-          <div className="container mx-auto max-w-5xl relative z-10">
+          <div data-chica-reveal className="container mx-auto max-w-5xl relative z-10">
             <div className="space-y-8 text-center">
               <span className="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.22em] text-[#E68A6E]">
                 Em desenvolvimento
